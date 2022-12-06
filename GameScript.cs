@@ -33,6 +33,7 @@ public class GameScript : MonoBehaviour
     //another way is to just make a function or maaaaaaaaaaaybe possibly a slight chance an enum state and just put in the scene function there.
     //look at wizard script for intellectual guidance 
     //fix all this stuff 
+    // add functions to void update.
     
     void Awake()
     {
@@ -50,7 +51,7 @@ public class GameScript : MonoBehaviour
             enteringdungeon0();
         }else if(myState == States.CheckingCaseFiles0)
         {
-            checkingcasefiles0()
+            checkingcasefiles0();
         }
     }
 
@@ -125,7 +126,7 @@ public class GameScript : MonoBehaviour
    
         void lookaround0()
         {
-            storyText.SetText("You observe the outer architectural designs of the dungeon and notice that the materials are quite prestine and modern +
+            storyText.SetText("You observe the outer architectural designs of the dungeon and notice that the materials are quite prestine and modern " +
                 "and even though it's embedded onto the side of a mountain the gold plating of the dungeon seems almost untouched.");
             choiceText.SetText("Press A to return to prior options");
             
@@ -179,7 +180,14 @@ public class GameScript : MonoBehaviour
                 "Hmmm... OH! There are symbols encarved on the walls, one of a ball coming down on a man, another of a multitude of men with fangs" +
                 "biting down on a man. and there is another one where a stick figure is getting stabbed from behind the back... I wonder what any of it means.");
             choiceText.SetText("Press A to go back to prior options / Press B to try to walk");
-            //create the strings for this later 
+            
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            myState = States.ContinueWalking0;
+        }else if (Input.GetKeyDown(KeyCode.B))
+        {
+            myState = States.AttemptWalkPast0;
+        }
                 
         }
 
@@ -188,7 +196,14 @@ public class GameScript : MonoBehaviour
             storyText.SetText("You see a spilled water bottle on the floor and " +
                 "note that the moisture of the water has not evaporated thereby meaning that this was recent and there might be survivors.");
             choiceText.SetText("Press A to go back to prior options / Press B to try to walk past it");
-            //create strings for this later 
+            
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            myState = States.ContinueWalking0;
+        }else if (Input.GetKeyDown(KeyCode.B))
+        {
+            myState = States.AttemptWalkPast0;
+        }
         }
 
         void scorchjumpkickssphinx0()
@@ -197,13 +212,104 @@ public class GameScript : MonoBehaviour
                 " The humanized stone statues awaken and attack due to not following the riddle.");
             choiceText.SetText("Press A to have Scorch create a ice walll to block the statue's path / Press B to try and kill the statues" +
                 "/ Press C You hold them off while Aftershock searches for an exit");
-            //create strings for this later 
+            
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            myState = States.StoneStatuesKill0;
+        }else if (Input.GetKeyDown(KeyCode.B))
+        {
+            myState = States.StoneStatuesKill0;
+        }else if (Input.GetKeyDown(KeyCode.C))
+        {
+            myState = States.FindingExitOfRoom0;
+        }
+        }
+
+        
+        void attemptwalkpast0()
+        {
+        storyText.SetText("The sphinx eyes glow as you try to walk past it. It wakes and requests that you answer a riddle before moving onward.");
+        choiceText.SetText("Press A to have Scorch attack the stone sphinx / Press B to listen to the sphinx's riddle. / Press C to ignore it and walk forward");
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            myState = States.ScorchJumpKicksSphinx0;
+        }else if (Input.GetKeyDown(KeyCode.B))
+        {
+            myState = States.TheRiddle0;
+        }else if (Input.GetKeyDown(KeyCode.C))
+        {
+            myState = States.WalkingPastOrWrong0;
+        }
+        }
+        
+        
+        void theriddle0()
+        {
+        storyText.SetText("The sphinx speaks,: Is it best to live your life by telling the truth, or not lying."); 
+        choiceText.SetText("Press A if you don't know / Press B if it is to not lie / Press C if it is to always tell the truth / Press D if you think it's both");
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            myState = States.WalkingPastOrWrong0;
+        }else if (Input.GetKeyDown(KeyCode.B))
+        {
+            myState = States.FindingExitOfRoom0;
+        }else if (Input.GetKeyDown(KeyCode.C))
+        {
+            myState = States.WalkingPastOrWrong0;
+        }else if (Input.GetKeyDown(KeyCode.D))
+        {
+            myState = States.WalkingPastOrWrong0;
+        }
         }
 
 
+        void walkingpastorwrong0()
+        {
+        storyText.SetText("Due to not following the riddle the humanized stone statues awake and rush you. OR you guessed incorrectly.");
+        choiceText.SetText("Press A to continue walking past the sphinx / Press B to have Scorch create an ice wall to block them while you find an exit / Press C to have you all attack the stone statues.");
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            myState = States.StoneStatuesKill0;
+        }else if (Input.GetKeyDown(KeyCode.B))
+        {
+            myState = States.FindingExitOfRoom0;
+        }else if (Input.GetKeyDown(KeyCode.C))
+        {
+            myState = States.StoneStatuesKill0; 
+        }
+        }
+
+        void stonestatueskill0()
+        {
+        storyText.SetText("Due to Scorch's injury, he fails to make an ice wall to block them off causing them to rush and kill you." +
+            " OR You foolishly ignored a group of stone individuals trying to kill you thus you are killed." +
+            " OR You tried to kill something that wasn't alive and got killed yourself.");
+        choiceText.SetText("Press A to go back to prior options");
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            myState = States.WalkingPastOrWrong0;
+        }
+        }
+
+        void findingexitofroom0()
+        {
+        storyText.SetText("You solve the riddle correctly and the exit to the next room is opened up. " +
+            "OR Aftershock finds the exit and drags Scorch out while you follow after OR You all find an exit after scorch creates an ice wall.");
+        choiceText.SetText("Press A to go to the next room");
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            myState = States.TheNextRoom1;
+        }
+        }
+
 
         void beginning0()
-    {
+        {
         storyText.SetText("You and your two teammates arrive at a dungeon," + "for this rescue mission, what do you do first?");
 
         choiceText.SetText("Press A to just enter the dungeon / Press B to review case files / Press C to look around environment / Press D to ask partners about case");
