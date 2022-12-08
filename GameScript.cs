@@ -52,7 +52,54 @@ public class GameScript : MonoBehaviour
         }else if(myState == States.CheckingCaseFiles0)
         {
             checkingcasefiles0();
-        }
+        }else if(myState == States.Lookaround0)
+        {
+            lookaround0();
+        }else if(myState == States.AskingPartner0)
+        {
+            askingpartner0();
+        }else if(myState == States.AskingPartnersAfterEnteringDungeon0
+        {   askingPartnersafterEnteringdungeon0();
+        }else if(myState == States.TryingToExitThroughEntrance0
+        {
+            tryingtoexitthroughentrance0();
+        }else if(myState == States.ContinueWalking0
+        {
+            continuewalking0();
+        }else if(myState == States.AskingWhatTheySee0
+        {
+            askingwhattheysee0();
+        }else if(myState == States.InvestigatingYourSurroundings0
+        {
+            investigatingyoursurroundings0();
+        }else if(myState == States.ScorchJumpKicksSphinx0
+        {
+            scorchjumpkickssphinx0();
+        }else if(myState == States.WalkingPastOrWrong0
+        {
+            walkingpastorwrong0();
+        }else if(myState == States.AttemptWalkPast0
+        {
+            attemptwalkpast0();
+        }else if(myState == States.TheRiddle0
+        {
+            theriddle0();
+        }else if(myState == States.StoneStatuesKill0
+        {
+            stonestatueskill0();
+        }else if(myState == States.FindingExitOfRoom0
+        {
+            findingexitofroom0();
+            
+            
+            
+            
+            
+        
+            
+            
+        
+
     }
 
     void checkingcasefiles0()
