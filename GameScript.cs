@@ -43,182 +43,192 @@ public class GameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(myState == States.Beginning0)
+        if (myState == States.Beginning0)
         {
             beginning0();
-        }else if(myState == States.EnteringDungeon0)
+        }
+        else if (myState == States.EnteringDungeon0)
         {
             enteringdungeon0();
-        }else if(myState == States.CheckingCaseFiles0)
+        }
+        else if (myState == States.CheckingCaseFiles0)
         {
             checkingcasefiles0();
-        }else if(myState == States.Lookaround0)
+        }
+        else if (myState == States.Lookaround0)
         {
             lookaround0();
-        }else if(myState == States.AskingPartner0)
+        }
+        else if (myState == States.AskingPartner0)
         {
             askingpartner0();
-        }else if(myState == States.AskingPartnersAfterEnteringDungeon0
-        {   askingPartnersafterEnteringdungeon0();
-        }else if(myState == States.TryingToExitThroughEntrance0
+        }
+        else if (myState == States.AskingPartnersAfterEnteringDungeon0)
+        {
+            askingPartnersafterEnteringdungeon0();
+        }
+        else if (myState == States.TryingToExitThroughEntrance0)
         {
             tryingtoexitthroughentrance0();
-        }else if(myState == States.ContinueWalking0
+        }
+        else if (myState == States.ContinueWalking0)
         {
             continuewalking0();
-        }else if(myState == States.AskingWhatTheySee0
+        }
+        else if (myState == States.AskingWhatTheySee0)
         {
             askingwhattheysee0();
-        }else if(myState == States.InvestigatingYourSurroundings0
+        }
+        else if (myState == States.InvestigatingYourSurroundings0)
         {
             investigatingyoursurroundings0();
-        }else if(myState == States.ScorchJumpKicksSphinx0
+        }
+        else if (myState == States.ScorchJumpKicksSphinx0)
         {
             scorchjumpkickssphinx0();
-        }else if(myState == States.WalkingPastOrWrong0
+        }
+        else if (myState == States.WalkingPastOrWrong0)
         {
             walkingpastorwrong0();
-        }else if(myState == States.AttemptWalkPast0
+        }
+        else if (myState == States.AttemptWalkPast0)
         {
             attemptwalkpast0();
-        }else if(myState == States.TheRiddle0
+        }
+        else if (myState == States.TheRiddle0)
         {
             theriddle0();
-        }else if(myState == States.StoneStatuesKill0
+        }
+        else if (myState == States.StoneStatuesKill0)
         {
             stonestatueskill0();
-        }else if(myState == States.FindingExitOfRoom0
+        }
+        else if (myState == States.FindingExitOfRoom0)
         {
             findingexitofroom0();
-            
-            
-            
-            
-            
-        
-            
-            
-        
-
-    }
-
-    void checkingcasefiles0()
-    {
-        storyText.SetText("Alright listen up Scorch, Aftershock, this place is known as the Kami's God of Repentance which probably means it's some sort of dangerous dungeon." +
-            "This place was first discovered once a popular explorer went missing 2 weeks ago. And so a team of 4 navy seals entered to rescue them" +
-            "However it's been one week since so they're missing as well. The most recent missing person is Seth, he's reported to be a loner with the " +
-            "magical powers to create shockwaves" +
-            " he has no family members and only one real friend, and said friend is the one who called us. So yeah, this is a missing persons case" +
-            "and it is imperative we rescue them or atleast obtain the bodies. ");
-        choiceText.SetText("Press <color=#00ff12>K</color> A to return to the beginning  options");
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.Beginning0;
-        }
-    }
-
-    void enteringdungeon0()
-    {
-        storyText.SetText("As the three of you enter the dungeon the door automatically closes behind you, with the metal frame of the door slamming against its " +
-            "casing causing the sound to reverberate throughout the one way stone hallway signifying the scope of the hallway to you.");
-
-        choiceText.SetText("Press A to go back through the entrance / Press B to Continue walking / Press C to Ask your Partners what they think");
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.TryingToExitThroughEntrance0;
-        } else if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.ContinueWalking0;
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            myState = States.AskingPartnersAfterEnteringDungeon0; 
         }
 
-      
-
-    }
-
-    void tryingtoexitthroughentrance0()
-    {
-        storyText.SetText("You attempt to pull the handles of the door however you forgot your daily" +
-            " intake of 1 gram of protein causing your attempt to fail.");
-        choiceText.SetText("Press B to return to prior options / Press C to Continue Walking");
-
-        if (Input.GetKeyDown(KeyCode.B))
+        void checkingcasefiles0()
         {
-            myState = States.EnteringDungeon0;
-        } else if (Input.GetKeyDown(KeyCode.C))
-        {
-            myState = States.ContinueWalking0;
+            storyText.SetText("Alright listen up Scorch, Aftershock, this place is known as the Kami's God of Repentance which probably means it's some sort of dangerous dungeon." +
+                "This place was first discovered once a popular explorer went missing 2 weeks ago. And so a team of 4 navy seals entered to rescue them" +
+                "However it's been one week since so they're missing as well. The most recent missing person is Seth, he's reported to be a loner with the " +
+                "magical powers to create shockwaves" +
+                " he has no family members and only one real friend, and said friend is the one who called us. So yeah, this is a missing persons case" +
+                "and it is imperative we rescue them or atleast obtain the bodies. ");
+            choiceText.SetText("Press <color=#00ff12>K</color> A to return to the beginning  options");
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.Beginning0;
+            }
         }
-    }
 
-    void askingpartner0()
-    {
-        storyText.SetText("Scorch: Ugh, why are we just standing around?! " +
-            "We should just enter already it's not like knowing what's gonnna happen is gonna change the outcome." +
-            "Aftershock: That's exactly what it means!! It's called p r e v e n t i n g, we need to take our time and observe every possible detail.");
-        choiceText.SetText("Press A to return to the prior options");
+        void enteringdungeon0()
+        {
+            storyText.SetText("As the three of you enter the dungeon the door automatically closes behind you, with the metal frame of the door slamming against its " +
+                "casing causing the sound to reverberate throughout the one way stone hallway signifying the scope of the hallway to you.");
+
+            choiceText.SetText("Press A to go back through the entrance / Press B to Continue walking / Press C to Ask your Partners what they think");
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.TryingToExitThroughEntrance0;
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.ContinueWalking0;
+            }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                myState = States.AskingPartnersAfterEnteringDungeon0;
+            }
+
+
+
+        }
+
+        void tryingtoexitthroughentrance0()
+        {
+            storyText.SetText("You attempt to pull the handles of the door however you forgot your daily" +
+                " intake of 1 gram of protein causing your attempt to fail.");
+            choiceText.SetText("Press B to return to prior options / Press C to Continue Walking");
+
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.EnteringDungeon0;
+            }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                myState = States.ContinueWalking0;
+            }
+        }
+
+        void askingpartner0()
+        {
+            storyText.SetText("Scorch: Ugh, why are we just standing around?! " +
+                "We should just enter already it's not like knowing what's gonnna happen is gonna change the outcome." +
+                "Aftershock: That's exactly what it means!! It's called p r e v e n t i n g, we need to take our time and observe every possible detail.");
+            choiceText.SetText("Press A to return to the prior options");
             GameObject.Find("Panel").GetComponent<Image>().sprite = imageArray[1];
-        
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.Beginning0;
-        }
-    }
 
-   
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.Beginning0;
+            }
+        }
+
+
         void lookaround0()
         {
             storyText.SetText("You observe the outer architectural designs of the dungeon and notice that the materials are quite prestine and modern " +
                 "and even though it's embedded onto the side of a mountain the gold plating of the dungeon seems almost untouched.");
             choiceText.SetText("Press A to return to prior options");
-            
+
             if (Input.GetKeyDown(KeyCode.A))
             {
                 myState = States.Beginning0;
-            }    
+            }
         }
 
-    void askingPartnersafterEnteringdungeon0()
-    {
-        storyText.SetText("Scorch: Doesn't matter, let's go in guns blazing!!" +
-            "Aftershock: Wait wha- no! Our only known exit just suddenly shut before us" +
-            "This is definitely something we should worry about! UGHHH!!!");
-        choiceText.SetText("Press A to go back to prior options / Press B to continue walking");
+        void askingPartnersafterEnteringdungeon0()
+        {
+            storyText.SetText("Scorch: Doesn't matter, let's go in guns blazing!!" +
+                "Aftershock: Wait wha- no! Our only known exit just suddenly shut before us" +
+                "This is definitely something we should worry about! UGHHH!!!");
+            choiceText.SetText("Press A to go back to prior options / Press B to continue walking");
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.EnteringDungeon0;
-        } else if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.ContinueWalking0;
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.EnteringDungeon0;
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.ContinueWalking0;
+            }
+
         }
-
-    }
 
         void continuewalking0()
         {
             storyText.SetText("You continue walking and are met with the gaze of dozens of human sized statues on the sides of a seemingly endless hallway" +
                 " that is lit by torches in the hands of each statue. And the end of the hallway seems to be an exit but it's blocked by a large stone sphinx.");
             choiceText.SetText("Press A to attempt to walk past it / Press B to investigate your surrounddings / Press C to ask if your partners see any thing");
-            
-          if (Input.GetKeyDown(KeyCode.A))
-        {
-          myState = States.AttemptWalkPast0;
-        } else if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.InvestigatingYourSurroundings0;
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.AttemptWalkPast0;
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.InvestigatingYourSurroundings0;
+            }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                myState = States.AskingWhatTheySee0;
+            }
+
         }
-          else if (Input.GetKeyDown(KeyCode.C))
-        {
-            myState = States.AskingWhatTheySee0;
-        }
-     
-    }
 
         void askingwhattheysee0()
         {
@@ -227,15 +237,16 @@ public class GameScript : MonoBehaviour
                 "Hmmm... OH! There are symbols encarved on the walls, one of a ball coming down on a man, another of a multitude of men with fangs" +
                 "biting down on a man. and there is another one where a stick figure is getting stabbed from behind the back... I wonder what any of it means.");
             choiceText.SetText("Press A to go back to prior options / Press B to try to walk");
-            
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.ContinueWalking0;
-        }else if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.AttemptWalkPast0;
-        }
-                
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.ContinueWalking0;
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.AttemptWalkPast0;
+            }
+
         }
 
         void investigatingyoursurroundings0()
@@ -243,14 +254,15 @@ public class GameScript : MonoBehaviour
             storyText.SetText("You see a spilled water bottle on the floor and " +
                 "note that the moisture of the water has not evaporated thereby meaning that this was recent and there might be survivors.");
             choiceText.SetText("Press A to go back to prior options / Press B to try to walk past it");
-            
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.ContinueWalking0;
-        }else if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.AttemptWalkPast0;
-        }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.ContinueWalking0;
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.AttemptWalkPast0;
+            }
         }
 
         void scorchjumpkickssphinx0()
@@ -259,128 +271,138 @@ public class GameScript : MonoBehaviour
                 " The humanized stone statues awaken and attack due to not following the riddle.");
             choiceText.SetText("Press A to have Scorch create a ice walll to block the statue's path / Press B to try and kill the statues" +
                 "/ Press C You hold them off while Aftershock searches for an exit");
-            
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.StoneStatuesKill0;
-        }else if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.StoneStatuesKill0;
-        }else if (Input.GetKeyDown(KeyCode.C))
-        {
-            myState = States.FindingExitOfRoom0;
-        }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.StoneStatuesKill0;
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.StoneStatuesKill0;
+            }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                myState = States.FindingExitOfRoom0;
+            }
         }
 
-        
+
         void attemptwalkpast0()
         {
-        storyText.SetText("The sphinx eyes glow as you try to walk past it. It wakes and requests that you answer a riddle before moving onward.");
-        choiceText.SetText("Press A to have Scorch attack the stone sphinx / Press B to listen to the sphinx's riddle. / Press C to ignore it and walk forward");
+            storyText.SetText("The sphinx eyes glow as you try to walk past it. It wakes and requests that you answer a riddle before moving onward.");
+            choiceText.SetText("Press A to have Scorch attack the stone sphinx / Press B to listen to the sphinx's riddle. / Press C to ignore it and walk forward");
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.ScorchJumpKicksSphinx0;
-        }else if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.TheRiddle0;
-        }else if (Input.GetKeyDown(KeyCode.C))
-        {
-            myState = States.WalkingPastOrWrong0;
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.ScorchJumpKicksSphinx0;
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.TheRiddle0;
+            }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                myState = States.WalkingPastOrWrong0;
+            }
         }
-        }
-        
-        
+
+
         void theriddle0()
         {
-        storyText.SetText("The sphinx speaks,: Is it best to live your life by telling the truth, or not lying."); 
-        choiceText.SetText("Press A if you don't know / Press B if it is to not lie / Press C if it is to always tell the truth / Press D if you think it's both");
+            storyText.SetText("The sphinx speaks,: Is it best to live your life by telling the truth, or not lying.");
+            choiceText.SetText("Press A if you don't know / Press B if it is to not lie / Press C if it is to always tell the truth / Press D if you think it's both");
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.WalkingPastOrWrong0;
-        }else if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.FindingExitOfRoom0;
-        }else if (Input.GetKeyDown(KeyCode.C))
-        {
-            myState = States.WalkingPastOrWrong0;
-        }else if (Input.GetKeyDown(KeyCode.D))
-        {
-            myState = States.WalkingPastOrWrong0;
-        }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.WalkingPastOrWrong0;
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.FindingExitOfRoom0;
+            }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                myState = States.WalkingPastOrWrong0;
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                myState = States.WalkingPastOrWrong0;
+            }
         }
 
 
         void walkingpastorwrong0()
         {
-        storyText.SetText("Due to not following the riddle the humanized stone statues awake and rush you. OR you guessed incorrectly.");
-        choiceText.SetText("Press A to continue walking past the sphinx / Press B to have Scorch create an ice wall to block them while you find an exit / Press C to have you all attack the stone statues.");
+            storyText.SetText("Due to not following the riddle the humanized stone statues awake and rush you. OR you guessed incorrectly.");
+            choiceText.SetText("Press A to continue walking past the sphinx / Press B to have Scorch create an ice wall to block them while you find an exit / Press C to have you all attack the stone statues.");
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.StoneStatuesKill0;
-        }else if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.FindingExitOfRoom0;
-        }else if (Input.GetKeyDown(KeyCode.C))
-        {
-            myState = States.StoneStatuesKill0; 
-        }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.StoneStatuesKill0;
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.FindingExitOfRoom0;
+            }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                myState = States.StoneStatuesKill0;
+            }
         }
 
         void stonestatueskill0()
         {
-        storyText.SetText("Due to Scorch's injury, he fails to make an ice wall to block them off causing them to rush and kill you." +
-            " OR You foolishly ignored a group of stone individuals trying to kill you thus you are killed." +
-            " OR You tried to kill something that wasn't alive and got killed yourself.");
-        choiceText.SetText("Press A to go back to prior options");
+            storyText.SetText("Due to Scorch's injury, he fails to make an ice wall to block them off causing them to rush and kill you." +
+                " OR You foolishly ignored a group of stone individuals trying to kill you thus you are killed." +
+                " OR You tried to kill something that wasn't alive and got killed yourself.");
+            choiceText.SetText("Press A to go back to prior options");
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.WalkingPastOrWrong0;
-        }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.WalkingPastOrWrong0;
+            }
         }
 
         void findingexitofroom0()
         {
-        storyText.SetText("You solve the riddle correctly and the exit to the next room is opened up. " +
-            "OR Aftershock finds the exit and drags Scorch out while you follow after OR You all find an exit after scorch creates an ice wall.");
-        choiceText.SetText("Press A to go to the next room");
+            storyText.SetText("You solve the riddle correctly and the exit to the next room is opened up. " +
+                "OR Aftershock finds the exit and drags Scorch out while you follow after OR You all find an exit after scorch creates an ice wall.");
+            choiceText.SetText("Press A to go to the next room");
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.TheNextRoom1;
-        }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.TheNextRoom1;
+            }
         }
 
 
         void beginning0()
         {
-        storyText.SetText("You and your two teammates arrive at a dungeon," + "for this rescue mission, what do you do first?");
+            storyText.SetText("You and your two teammates arrive at a dungeon," + "for this rescue mission, what do you do first?");
 
-        choiceText.SetText("Press A to just enter the dungeon / Press B to review case files / Press C to look around environment / Press D to ask partners about case");
-        //copy the the game object get component image thing below to other functions and replace the 0 to another number but only do this if you want an image change
-       
-        GameObject.Find("Panel").GetComponent<Image>().sprite = imageArray[0];
+            choiceText.SetText("Press A to just enter the dungeon / Press B to review case files / Press C to look around environment / Press D to ask partners about case");
+            //copy the the game object get component image thing below to other functions and replace the 0 to another number but only do this if you want an image change
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            myState = States.CheckingCaseFiles0;
-        }else if (Input.GetKeyDown(KeyCode.A))
-        {
-            myState = States.EnteringDungeon0; 
+            GameObject.Find("Panel").GetComponent<Image>().sprite = imageArray[0];
+
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                myState = States.CheckingCaseFiles0;
+            }
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
+                myState = States.EnteringDungeon0;
+            }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                myState = States.Lookaround0;
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                myState = States.AskingPartner0;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            myState = States.Lookaround0;
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            myState = States.AskingPartner0;
-        }
+
+        //make some coding stuff for making the winnning/ending, losing, and main menu scene for the script 
     }
-
-    //make some coding stuff for making the winnning, losing, and main menu scene for the script 
-
 }
